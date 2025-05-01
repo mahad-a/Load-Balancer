@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-// Backend 1: Quadratic Formula
+// quadraticFormula generates 3 random numbers and calculates the quadratic formula
 func quadraticFormula(w http.ResponseWriter, r *http.Request) {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -43,7 +43,7 @@ func quadraticFormula(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Backend 2: Pythagorean Theorem
+// pythagoreanTheorem generates 2 random numbers and calculates the pythagorean theorem
 func pythagoreanTheorem(w http.ResponseWriter, r *http.Request) {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -65,7 +65,7 @@ func pythagoreanTheorem(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Backend 3: Compound Interest Formula
+// compoundInterest generates 3 random numbers and calculates the compound interest for it
 func compoundInterest(w http.ResponseWriter, r *http.Request) {
 	port := os.Getenv("PORT")
 	if port == "" {

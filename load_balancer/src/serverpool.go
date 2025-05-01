@@ -4,6 +4,7 @@ import (
 	"sync/atomic"
 )
 
+// ServerPool is the struct for the server pool
 type ServerPool struct {
 	backends []*Backend
 	current  uint64
@@ -11,10 +12,14 @@ type ServerPool struct {
 
 var serverPool ServerPool
 
+// methods in the server pool
+
+// NextIndex checks and returns the index of the next server in the pool assuming there is another server in the pool
 func (s *ServerPool) NextIndex() int {
 	return int(atomic.AddUint64(&s.current, 1) % uint64(len(s.backends)))
 }
 
+// GetNextPeer gets the next server in the pool assuming there is another server in the pool
 func (s *ServerPool) GetNextPeer() *Backend {
 	next := s.NextIndex()
 	l := len(s.backends) + next

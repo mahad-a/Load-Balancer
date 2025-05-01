@@ -8,11 +8,14 @@ import (
 )
 
 const (
-	targetURL     = "http://localhost:8080"
-	requestRate   = 10 * time.Millisecond
-	numGoroutines = 10
-	testDuration  = 10 * time.Second
+	targetURL     = "http://localhost:8080" // the address of load balancer, leave as is
+	requestRate   = 10 * time.Millisecond   // how frequent to send requests
+	numGoroutines = 10                      // launches 10 goroutines
+	testDuration  = 10 * time.Second        // simulation time
 )
+
+// simulates clients automatically, without having to refresh the page constantly
+// update the const above with your own desired duration and request rate
 
 func sendRequests(wg *sync.WaitGroup, stopCh <-chan struct{}) {
 	defer wg.Done()
