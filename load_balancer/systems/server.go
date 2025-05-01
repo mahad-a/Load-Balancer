@@ -9,6 +9,8 @@ import (
 	"os"
 )
 
+// ! run_backends.ps1 file automatically opens 3 powershell windows and spins up the 3 backend servers for you
+
 // quadraticFormula generates 3 random numbers and calculates the quadratic formula
 func quadraticFormula(w http.ResponseWriter, r *http.Request) {
 	port := os.Getenv("PORT")
